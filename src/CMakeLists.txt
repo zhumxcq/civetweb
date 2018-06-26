@@ -15,16 +15,16 @@ endif()
 target_include_directories(
   civetweb-c-library PUBLIC
   ${PROJECT_SOURCE_DIR}/include)
-install(
-  TARGETS civetweb-c-library
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin
-  COMPONENT civetweb-c-library)
-install(FILES
-  ${PROJECT_SOURCE_DIR}/include/civetweb.h
-  DESTINATION include
-  COMPONENT civetweb-c-library)
+#install(
+#  TARGETS civetweb-c-library
+#  ARCHIVE DESTINATION lib
+#  LIBRARY DESTINATION lib
+#  RUNTIME DESTINATION bin
+#  COMPONENT civetweb-c-library)
+#install(FILES
+#  ${PROJECT_SOURCE_DIR}/include/civetweb.h
+#  DESTINATION include
+#  COMPONENT civetweb-c-library)
 
 # Need Windows sockets if available
 find_package(WinSock)
@@ -301,14 +301,14 @@ if (CIVETWEB_ENABLE_CXX)
   target_include_directories(
     civetweb-cpp PUBLIC
     ${PROJECT_SOURCE_DIR}/include)
-  install(
-    TARGETS civetweb-cpp
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin
-    COMPONENT civetweb-cpp)
-  install(FILES
-    ${PROJECT_SOURCE_DIR}/include/CivetServer.h
-    DESTINATION include
-    COMPONENT civetweb-cpp)
+#  install(
+#   TARGETS civetweb-cpp
+#    ARCHIVE DESTINATION lib
+#    LIBRARY DESTINATION lib
+#    RUNTIME DESTINATION bin
+#    COMPONENT civetweb-cpp)
+#  install(FILES
+#    ${PROJECT_SOURCE_DIR}/include/CivetServer.h
+#    DESTINATION include
+#    COMPONENT civetweb-cpp)
 endif()
