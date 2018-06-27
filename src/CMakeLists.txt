@@ -1,3 +1,5 @@
+cmake_policy(SET CMP0063 NEW)
+
 # The C API library
 set( LIB_TYPE "STATIC" )
 if (BUILD_SHARED_LIBS)
@@ -8,6 +10,7 @@ set_target_properties(civetweb-c-library PROPERTIES
   OUTPUT_NAME "civetweb"
   VERSION ${CIVETWEB_VERSION}
   SOVERSION ${CIVETWEB_VERSION}
+  POSITION_INDEPENDENT_CODE ON
 )
 if (BUILD_SHARED_LIBS)
   target_compile_definitions(civetweb-c-library PRIVATE CIVETWEB_DLL_EXPORTS)
@@ -244,7 +247,8 @@ if (CIVETWEB_ENABLE_LUA)
 endif()
 
 # The web server executable
-if (CIVETWEB_ENABLE_SERVER_EXECUTABLE)
+#if (CIVETWEB_ENABLE_SERVER_EXECUTABLE)
+if (False)
     add_executable(civetweb-c-executable main.c)
     set_target_properties(civetweb-c-executable PROPERTIES
         OUTPUT_NAME "civetweb"
@@ -294,6 +298,7 @@ if (CIVETWEB_ENABLE_CXX)
     OUTPUT_NAME "civetweb-cpp"
     VERSION ${CIVETWEB_VERSION}
     SOVERSION ${CIVETWEB_VERSION}
+    POSITION_INDEPENDENT_CODE ON
   )
   if (BUILD_SHARED_LIBS)
     target_compile_definitions(civetweb-cpp PRIVATE CIVETWEB_DLL_EXPORTS)
