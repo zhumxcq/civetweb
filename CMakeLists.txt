@@ -46,7 +46,7 @@ elseif(NOT LINUX AND ${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 endif()
 
 # CTest automation
-option(CIVETWEB_BUILD_TESTING "Enable automated testing of civetweb" ON)
+option(CIVETWEB_BUILD_TESTING "Enable automated testing of civetweb" OFF)
 message(STATUS "Enabling tests in the build - ${CIVETWEB_BUILD_TESTING}")
 
 # C++ wrappers
@@ -58,7 +58,7 @@ set(CIVETWEB_THREAD_STACK_SIZE 102400 CACHE STRING
 set_property(CACHE CIVETWEB_THREAD_STACK_SIZE PROPERTY VALUE ${CIVETWEB_THREAD_STACK_SIZE})
 message(STATUS "Thread Stack Size - ${CIVETWEB_THREAD_STACK_SIZE}")
 
-option(CIVETWEB_ENABLE_SERVER_EXECUTABLE "Enable building of the server executable" ON)
+option(CIVETWEB_ENABLE_SERVER_EXECUTABLE "Enable building of the server executable" OFF)
 message(STATUS "Enabling server executable - ${CIVETWEB_ENABLE_SERVER_EXECUTABLE}")
 
 # Serve no files from the web server
@@ -74,7 +74,7 @@ option(CIVETWEB_DISABLE_CACHING "Disables caching, so that no timegm is used." O
 message(STATUS "Disable caching support - ${CIVETWEB_DISABLE_CACHING}")
 
 # C++ wrappers
-option(CIVETWEB_ENABLE_CXX "Enables the C++ wrapper library" OFF)
+option(CIVETWEB_ENABLE_CXX "Enables the C++ wrapper library" ON)
 message(STATUS "C++ wrappers - ${CIVETWEB_ENABLE_CXX}")
 
 # IP Version 6
@@ -94,7 +94,7 @@ option(CIVETWEB_ENABLE_MEMORY_DEBUGGING "Enable the memory debugging features" O
 message(STATUS "Memory Debugging - ${CIVETWEB_ENABLE_MEMORY_DEBUGGING}")
 
 # ASAN in debug mode (-fsanitize=address, etc)
-option(CIVETWEB_ENABLE_ASAN "Enable ASAN in debug mode" ON)
+option(CIVETWEB_ENABLE_ASAN "Enable ASAN in debug mode" OFF)
 message(STATUS "ASAN in debug mode - ${CIVETWEB_ENABLE_ASAN}")
 
 # ARCH flag
@@ -106,7 +106,7 @@ option(CIVETWEB_ENABLE_LUA "Enable Lua CGIs" OFF)
 message(STATUS "Lua CGI support - ${CIVETWEB_ENABLE_LUA}")
 
 # Enable installing CivetWeb executables
-option(CIVETWEB_INSTALL_EXECUTABLE "Enable installing CivetWeb executable" ON)
+option(CIVETWEB_INSTALL_EXECUTABLE "Enable installing CivetWeb executable" OFF)
 mark_as_advanced(FORCE CIVETWEB_INSTALL_EXECUTABLE) # Advanced users can disable
 message(STATUS "Executable installation - ${CIVETWEB_INSTALL_EXECUTABLE}")
 
@@ -465,7 +465,7 @@ endif()
 add_subdirectory(src)
 
 # Enable the testing of the library/executable
-include(CTest)
+# include(CTest)
 if (CIVETWEB_BUILD_TESTING)
   # Check unit testing framework Version
   set(CIVETWEB_CHECK_VERSION 0.11.0 CACHE STRING
